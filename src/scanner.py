@@ -15,7 +15,7 @@ class GitRepoScanner:
             response = self.retry_handler.get(self.endpoint)
             response.raise_for_status()
             content_type = response.headers.get('Content-Type')
-            if content_type in content_type.lower():
+            if 'application/json' in content_type.lower():
                 data = response.json()
                 return data
 
